@@ -53,7 +53,6 @@ namespace RestaurantApp_DAL.Repository
                     con.Execute("Usp_Insert_Customers", param: dynamicParameters, commandType: CommandType.StoredProcedure); //await connection.QueryAsync<Company>(query);
                     //var message = dynamicParameters.Get<string>("Message");
                     var CustomerID = dynamicParameters.Get<int?>("CustomerID");
-                    //return companies.ToList();
                     if (CustomerID != null)
                     {
                         responseDTO.IsSuccess = true;
