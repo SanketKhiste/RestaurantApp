@@ -34,24 +34,13 @@ namespace RestaurantApp_DAL.Repository
                 using (IDbConnection con = new SqlConnection(_configuration.GetConnectionString("RestaurantConn")))
                 {
                     var dynamicParameters = new DynamicParameters();
-                    //dynamicParameters.Add("CustomerID", customer.CustomerID, direction: ParameterDirection.InputOutput, dbType: DbType.Int32);
                     dynamicParameters.Add("FirstName", customer.FirstName, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("LastName", customer.LastName, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("Email", customer.Email, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("PhoneNumber", customer.PhoneNumber, direction: ParameterDirection.Input, dbType: DbType.String);
-                    //dynamicParameters.Add("CreatedAt", customer.CreatedAt, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("CustomerID", dbType: DbType.Int32, direction: ParameterDirection.Output);
                     dynamicParameters.Add("Message", dbType: DbType.String, direction: ParameterDirection.Output, size: 200);
-
-                    //await db.ExecuteAsync("sp_AddCustomer", parameters, commandType: CommandType.StoredProcedure);
-
-                    //return parameters.Get<int>("CustomerID");
-                    //using (var connection = _context.CreateConnection())
-                    //using (IDbConnection con = new SqlConnection(_configuration.GetConnectionString("UFOCUS")))
-                    //{
-                    //var companies = con.Execute("Usp_Insert_Customers", param: dynamicParameters, commandType: CommandType.StoredProcedure); //await connection.QueryAsync<Company>(query);
                     con.Execute("Usp_Insert_Customers", param: dynamicParameters, commandType: CommandType.StoredProcedure); //await connection.QueryAsync<Company>(query);
-                    //var message = dynamicParameters.Get<string>("Message");
                     var CustomerID = dynamicParameters.Get<int?>("CustomerID");
                     if (CustomerID != null)
                     {
