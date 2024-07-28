@@ -13,11 +13,11 @@ namespace RestaurantApp.Controllers
     {
         private readonly ICustomer _iCustomer;
         //private readonly CustomerService _customerService;
-        private readonly IConfiguration _appsetiing;
-        public CustomerController(ICustomer customer, IConfiguration configuration) 
+        //private readonly IConfiguration _appsetiing;
+        public CustomerController(ICustomer customer) 
         {
             _iCustomer = customer;
-            _appsetiing = configuration;
+            //_appsetiing = configuration;
         }
         //public async Task<string>
         [HttpPost]

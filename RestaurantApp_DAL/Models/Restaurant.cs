@@ -15,7 +15,7 @@ namespace RestaurantApp_DAL.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string PhoneNumber { get; set; }
-        public DateTime CreatedAt { get; set; }
+        //public DateTime CreatedAt { get; set; }
         //public ICollection<MenuItem> MenuItems { get; set; }
         //public ICollection<Review> Reviews { get; set; }
     }
