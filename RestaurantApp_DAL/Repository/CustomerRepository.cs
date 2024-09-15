@@ -37,9 +37,10 @@ namespace RestaurantApp_DAL.Repository
                     dynamicParameters.Add("FirstName", customer.FirstName, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("LastName", customer.LastName, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("Email", customer.Email, direction: ParameterDirection.Input, dbType: DbType.String);
-                    dynamicParameters.Add("PhoneNumber", customer.PhoneNumber, direction: ParameterDirection.Input, dbType: DbType.String);
+                    dynamicParameters.Add("PhoneNumber", customer.ContactNumber, direction: ParameterDirection.Input, dbType: DbType.String);
+                    dynamicParameters.Add("Password", customer.Password, direction: ParameterDirection.Input, dbType: DbType.String);
                     dynamicParameters.Add("CustomerID", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                    dynamicParameters.Add("Message", dbType: DbType.String, direction: ParameterDirection.Output, size: 200);
+                    //dynamicParameters.Add("Message", dbType: DbType.String, direction: ParameterDirection.Output, size: 200);
                     con.Execute("Usp_Insert_Customers", param: dynamicParameters, commandType: CommandType.StoredProcedure); //await connection.QueryAsync<Company>(query);
                     var CustomerID = dynamicParameters.Get<int?>("CustomerID");
                     if (CustomerID != null)

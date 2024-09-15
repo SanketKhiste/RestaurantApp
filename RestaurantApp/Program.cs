@@ -5,6 +5,16 @@ using RestaurantApp_DAL.IRepository;
 using RestaurantApp_DAL.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
+var CorsPolicy = "_corsPolicy";
+
+builder.Services.AddCors(Options =>
+{
+    Options.AddPolicy(name: CorsPolicy,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+        });
+});
 
 // Add services to the container.
 builder.Services.AddSingleton<DapperContext>();
@@ -23,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(CorsPolicy);
 
 app.UseHttpsRedirection();
 
