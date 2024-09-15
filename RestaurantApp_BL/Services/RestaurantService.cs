@@ -23,8 +23,9 @@ namespace RestaurantApp_BAL.Services
         public ResponseDTO RestaurantDetails(Restaurant restaurant)
         {
             //_restaurantRepository.
-            ResponseDTO responseDTO = new ResponseDTO();
-            return responseDTO;
+            //ResponseDTO responseDTO = new ResponseDTO();
+            return _restaurantRepository.RestaurantDetails(restaurant);
+            //return responseDTO;
         }
     }
 }

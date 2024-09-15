@@ -17,6 +17,8 @@ namespace RestaurantApp.Controllers
             _iRestaurant = restaurant;
         }
 
+        [HttpPost]
+        [Route("RestaurantDetails")]
         public ResponseDTO RestaurantDetails(Restaurant restaurant)
         {
             ResponseDTO responseDTO = new ResponseDTO();
