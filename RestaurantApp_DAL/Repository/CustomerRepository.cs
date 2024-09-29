@@ -46,7 +46,8 @@ namespace RestaurantApp_DAL.Repository
                     if (CustomerID != null)
                     {
                         responseDTO.IsSuccess = true;
-                        responseDTO.Message = "Hi you have succefully created customerID "+CustomerID;
+                        //responseDTO.Message = "Hi you have successfully created customerID "+CustomerID;
+                        responseDTO.Message = "Customer registered with "+CustomerID;
                     }
                     else
                     {

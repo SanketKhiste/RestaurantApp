@@ -27,7 +27,7 @@ namespace RestaurantApp.Controllers
             ResponseDTO responseDTO = new ResponseDTO();
             try 
             {
-                _iCustomer.CustomerDetail(customer);
+                responseDTO = _iCustomer.CustomerDetail(customer);
             }
             catch (Exception ex)
             {
