@@ -20,6 +20,8 @@ builder.Services.AddCors(Options =>
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomer, CustomerService>();
+builder.Services.AddScoped<ILogin, LoginService>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
