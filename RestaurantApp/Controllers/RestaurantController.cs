@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantApp_BAL.Interface;
 using RestaurantApp_DAL.Models;
@@ -19,6 +20,7 @@ namespace RestaurantApp.Controllers
 
         [HttpPost]
         [Route("RestaurantDetails")]
+        [Authorize(Roles = "Admin")]
         public ResponseDTO RestaurantDetails(Restaurant restaurant)
         {
             ResponseDTO responseDTO = new ResponseDTO();

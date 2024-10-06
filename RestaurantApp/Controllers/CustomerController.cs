@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantApp_BAL.Interface;
 using RestaurantApp_BAL.Services;
@@ -21,7 +22,8 @@ namespace RestaurantApp.Controllers
         }
         //public async Task<string>
         [HttpPost]
-        [Route("CustomerDetail")]
+        //[Route("CustomerDetail")]
+        [Authorize(Roles = "User")]
         public ResponseDTO CustomerDetail(Customer customer)
         {
             ResponseDTO responseDTO = new ResponseDTO();

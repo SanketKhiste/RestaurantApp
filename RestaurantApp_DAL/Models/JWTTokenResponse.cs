@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantApp_DAL.Models
 {
-    public class Login
+    public class JWTTokenResponse
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string? Token { get; set; }
+
     }
 }
