@@ -22,8 +22,8 @@ namespace RestaurantApp.Controllers
         }
         //public async Task<string>
         [HttpPost]
-        //[Route("CustomerDetail")]
-        [Authorize(Roles = "User")]
+        [Route("CustomerDetail")]
+        //[Authorize(Roles = "User")]
         public ResponseDTO CustomerDetail(Customer customer)
         {
             ResponseDTO responseDTO = new ResponseDTO();

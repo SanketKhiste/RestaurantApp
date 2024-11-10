@@ -20,10 +20,10 @@ namespace RestaurantApp_DAL.Repository
 
         ConfigHelper _configuration = new ConfigHelper();
 
-        public RestaurantRepository(DapperContext dapperContext, ConfigHelper configHelper)
+        public RestaurantRepository(DapperContext dapperContext)
         {
             _dapperContext = dapperContext;
-            _configuration = configHelper;
+            //_configuration = configHelper;
         }
 
         public ResponseDTO RestaurantDetails(Restaurant restaurant)

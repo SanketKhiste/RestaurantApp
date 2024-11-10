@@ -9,6 +9,7 @@ namespace RestaurantApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class RestaurantController : ControllerBase
     {
         private readonly IRestaurant _iRestaurant;
@@ -20,7 +21,6 @@ namespace RestaurantApp.Controllers
 
         [HttpPost]
         [Route("RestaurantDetails")]
-        [Authorize(Roles = "Admin")]
         public ResponseDTO RestaurantDetails(Restaurant restaurant)
         {
             ResponseDTO responseDTO = new ResponseDTO();

@@ -51,7 +51,8 @@ namespace RestaurantApp_DAL.Repository
                                 //new Claim(ClaimTypes.Name, objResponse.FirstName),
                                 new Claim("Id", objResponse.CustomerId.ToString()),
                                 new Claim("FirstName", objResponse.FirstName),
-                                new Claim("Email", objResponse.Email)
+                                new Claim("Email", objResponse.Email),
+                                new Claim("Role", objResponse.Rolename)
                                 // Add additional claims as needed (e.g., roles, etc.)
                             };
                             //var userRoles = objResponse.UserRoles.Where(u => u.UserId == user.Id).ToList();
@@ -67,7 +68,8 @@ namespace RestaurantApp_DAL.Repository
                                 issuer: _configuration.GetString("JWT:Issuer"), 
                                 audience: _configuration.GetString("JWT:Audience"), 
                                 claims: claims, 
-                                expires: DateTime.Now.AddMinutes(_configuration.GetInt32("TokenValidityInMinutes")),
+                                expires: DateTime.Now.AddHours(3),
+                                //expires: DateTime.Now.AddMinutes(_configuration.GetInt32("TokenValidityInMinutes")),
                                 signingCredentials: signinCredentials
                                 );
                             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
