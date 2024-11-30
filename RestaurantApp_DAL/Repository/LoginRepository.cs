@@ -68,7 +68,7 @@ namespace RestaurantApp_DAL.Repository
                                 issuer: _configuration.GetString("JWT:Issuer"), 
                                 audience: _configuration.GetString("JWT:Audience"), 
                                 claims: claims, 
-                                expires: DateTime.Now.AddHours(3),
+                                expires: DateTime.Now.AddMinutes(1),
                                 //expires: DateTime.Now.AddMinutes(_configuration.GetInt32("TokenValidityInMinutes")),
                                 signingCredentials: signinCredentials
                                 );
