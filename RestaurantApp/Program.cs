@@ -70,9 +70,9 @@ builder.Services.AddAuthentication(opt => {
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        //ClockSkew = TimeSpan.Zero,
+        ValidateLifetime = true, // Ensures token expiration is validated
+        //ValidateIssuerSigningKey = true,
+        ClockSkew = TimeSpan.Zero, // Helps avoid delay issues
         ValidIssuer = builder.Configuration["JWT:Issuer"],
         ValidAudience = builder.Configuration["JWT:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
@@ -94,10 +94,12 @@ app.UseCors(CorsPolicy);
 
 app.UseHttpsRedirection();
 
+
+
+app.MapControllers();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
