@@ -23,7 +23,7 @@ namespace RestaurantApp.Controllers
             ResponseDTO responseDTO = new ResponseDTO();
             try
             {
-                responseDTO = _iLogin.LoginDetails(login);
+                responseDTO = _iLogin.LoginDetails(login); 
             }
             catch (Exception ex)
             {
