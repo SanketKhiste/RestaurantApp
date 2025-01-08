@@ -25,7 +25,7 @@ namespace RestaurantApp_BAL.Services
 
         public ResponseDTO CustomerDetail(Customer customer)
         {
-            return _customer.CustomerDetail(customer);
+            return _customer.CustomerDetail(customer); 
 
         }
 
